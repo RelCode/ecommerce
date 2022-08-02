@@ -1,0 +1,16 @@
+RewriteEngine On
+#Fix Rewrite
+#Options -Multiviews
+Options -Indexes
+# Mod Rewrite
+#Options +FollowSymLinks
+#RewriteBase /zk-mall/
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# used for php pages such as "yoursite.com/login.php" will become "yoursite.com/login/"
+#RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+RewriteRule (.*) index.php [NC,L] #All requests will be routed to the index file
+#RewriteRule ^([a-z_]+)\/?$ $1.php [NC]
