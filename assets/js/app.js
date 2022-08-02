@@ -1,5 +1,6 @@
 var navHeight = document.getElementsByTagName('nav')[0].clientHeight;
 document.getElementById('main-container').style.height = 'calc(100% - '+navHeight+'px)'
+document.getElementById('main-container').style.top = navHeight+'px'
 var xmlHttp = new XMLHttpRequest();
 var actionUrl = './library/Actions.php';
 

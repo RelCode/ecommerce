@@ -4,48 +4,70 @@ html, body {
     margin: 0;
     padding: 0;
 }
+.navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 9;
+}
+#main-container {
+    position:relative;
+}
 #main-container > .row {
     height: 100%;
 }
-.row-block {
-    display: block !important;
+.product-name {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
-.sidebar {
-    background-color: #343A40;
-}
-.sidebar > ul > li {
-    padding: 15px;
-}
-.sidebar > ul > li > a {
-    color: #FFF;
-}
-.sidebar > ul > .active {
-    background-color: #FFF;
-}
-.sidebar > ul > .active > a {
-    color: #343A40;
-    font-size: 20px;
-}
-.add-btn {
-    position: absolute;
-    right: 0;
-}
-.datalist {
-    padding: 0;
-    list-style: none;
-    position: absolute;
-    z-index: 9;
-    background: rgba(255,255,255,.9);
-    width: 100%;
-}
-.datalist > li {
-    padding: 10px;
-}
-
 .product-tile > a {
     color: #343A40;
     text-decoration: none !important;
 }
 .no-value {
     border: 2px solid red !important;
+}
+.carousel-control-next, .carousel-control-prev {
+    color: #000 !important;
+    opacity: 1 !important;
+}
+.carousel-indicators {
+    bottom: 80px !important;
+    /* margin-bottom: 0!important; */
+}
+.carousel-indicators > li {
+    background-color: #343A40 !important;
+}
+.pallettes > strong {
+    position:relative;
+    top: -13px;
+}
+.size {
+    top: 0 !important;
+}
+.pallettes > div {
+    display: inline-block;
+    margin: 3px;
+    cursor: pointer;
+}
+.colour-pallettes {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: inline;
+}
+.size-pallettes {
+    height: 30px;
+    width: 50px;
+    text-align: center;
+    border: 0.5px solid;
+}
+.black {
+    background-color: #000;
+}
+.brown {
+    background-color: brown;
+}
+.navy {
+    background-color: navy;
 }

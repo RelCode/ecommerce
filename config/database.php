@@ -25,5 +25,19 @@ class Database{
         }
         return $data;
     }
+
+    public function allWhereIdRows($table,$column,$value){
+        $data = [];
+        $query = 'SELECT * FROM '.$table.' WHERE '.$column.' = :value';
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':value',$value);
+        $stmt->execute();
+        if($stmt->rowCount() > 0){
+            while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                array_push($data,$row);
+            }
+        }
+        return $data;
+    }
 }
 date_default_timezone_set('Africa/Johannesburg');

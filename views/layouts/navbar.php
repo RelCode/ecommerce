@@ -1,35 +1,28 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-<a class="navbar-brand" href="#">Navbar</a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-</button>
+    <a class="navbar-brand" href="/ecommerce">PH-ECommerce</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenuContent" aria-controls="navMenuContent" aria-expanded="false" aria-label="Toggle Navigation Menu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-    <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-        Dropdown
-        </a>
-        <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled">Disabled</a>
-    </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-</div>
+    <div class="collapse navbar-collapse" id="navMenuContent">
+        <ul class="navbar-nav ml-auto p-0 m-0">
+            <li class="nav-item">
+                <a href="/shoes" class="nav-link">Shoes</a>
+            </li>
+            <li class="nav-item">
+                <a href="/shirts" class="nav-link">Shirts</a>
+            </li>
+            <li class="nav-item">
+                <a href="/shorts" class="nav-link">Shorts</a>
+            </li>
+            <form class="form-inline my-2 ml-md-3 my-lg-0">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search For Product" aria-label="Input field to search for products by name" aria-describedby="button-addon1">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="submit"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </ul>
+    </div>
 </nav>

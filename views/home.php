@@ -1,5 +1,5 @@
 <div class="container" id="main-container">
-    <div class="row">
+    <div class="row p-3">
         <?php
             if(count($data) > 0){
                 $div = '';
@@ -9,7 +9,7 @@
                     $div .= '<div class="card">';
                     $div .= '<img class="card-img-top" src="./uploads/'.$data[$i]['thumbnail'].'" alt="'.$data[$i]['name'].'" height="255px"/>';
                     $div .= '<div class="card-body">';
-                    $div .= '<h5 class="card-title">'.$data[$i]['name'].'</h5>';
+                    $div .= '<h5 class="card-title product-name">'.$data[$i]['name'].'</h5>';
                     $div .= '<p class="card-text">R '.number_format($data[$i]['price'],2,'.',',').' per '.$data[$i]['unit'].'</p>';
                     $div .= '</div>';
                     $div .= '</div>';
