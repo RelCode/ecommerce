@@ -3,10 +3,7 @@
     class Helper {
         // public $directory;
         public function __construct(){
-            // $uri = explode('/',$_SERVER['REQUEST_URI']);
-            // $this->directory = $uri[2] == '' || $uri[2] == 'home' ? 'home' : $uri[2];//www.commerce.com/[home]
-            // $this->subdirectory = isset($uri[3]) ? '/' . $uri[3] : '';//[shoes]/[men,women,kids]
-            // $this->path = isset($uri[4]) ? '/' . $uri[4] : '';//[shoes][men][productId]
+            
         }
 
         public static function route(){

@@ -5,7 +5,7 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navMenuContent">
-        <ul class="navbar-nav ml-auto p-0 m-0">
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a href="/shoes" class="nav-link">Shoes</a>
             </li>
@@ -15,6 +15,32 @@
             <li class="nav-item">
                 <a href="/shorts" class="nav-link">Shorts</a>
             </li>
+        </ul>
+        <ul class="navbar-nav ml-auto p-0 m-0">
+            <li class="nav-item">
+                <a href="/ecommerce/cart" class="nav-link">Cart <i class="badge badge-secondary">0</i></a>
+            </li>
+            <?php
+            if (isset($_SESSION['customer']) && $_SESSION['customer']['loggedIn']) {
+            ?>
+                <li class="nav-item">
+                    <a href="/ecommerce/profile" class="nav-link">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/ecommerce/logout" class="nav-link">Logout</a>
+                </li>
+            <?php
+            } else {
+            ?>
+                <li class="nav-item">
+                    <a href="/ecommerce/login" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/ecommerce/register" class="nav-link">Register</a>
+                </li>
+            <?php
+            }
+            ?>
             <li class="nav-item">
                 <form class="form-inline my-2 ml-md-3 my-lg-0">
                     <div class="input-group">
@@ -24,12 +50,6 @@
                         </div>
                     </div>
                 </form>
-            </li>
-            <li class="nav-item">
-                <a href="/ecommerce/login" class="nav-link">Login</a>
-            </li>
-            <li class="nav-item">
-                <a href="/ecommerce/register" class="nav-link">Register</a>
             </li>
         </ul>
     </div>

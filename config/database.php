@@ -5,7 +5,7 @@ class Database{
     private $user = 'root';
     private $password = '';
     public $db;
-
+    //creates a db connection object
     public function __construct(){
         try{
             $this->db = new PDO('mysql:host='.$this->host.';dbname='.$this->dbname,$this->user,$this->password);
@@ -14,7 +14,7 @@ class Database{
             echo 'DB Connection Error: ' . $exception;
         }
     }
-
+    //shorthand method used to execute a query & fetch rows
     public function allRows($query){
         $data = [];
         $stmt = $this->db->query($query);
@@ -25,7 +25,16 @@ class Database{
         }
         return $data;
     }
-
+    //fetches a row where an value match a single record
+    public function allWhereIdSingle($table,$column,$value){
+        $query = 'SELECT * FROM '.$table.' WHERE '.$column.' = :value LIMIT 1';
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':value',$value);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $row;
+    }
+    //fetches all rows where a value matches multiple records
     public function allWhereIdRows($table,$column,$value){
         $data = [];
         $query = 'SELECT * FROM '.$table.' WHERE '.$column.' = :value';
