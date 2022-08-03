@@ -71,3 +71,15 @@ html, body {
 .navy {
     background-color: navy;
 }
+
+.dot-parent {
+    position:relative;
+}
+.red-dot {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    background: red;
+    border-radius: 50%;
+    right: -5px;
+}

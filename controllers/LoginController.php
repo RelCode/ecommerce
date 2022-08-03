@@ -35,6 +35,7 @@ class LoginController {
         $_SESSION['customer']['id'] = $user['id'];
         $_SESSION['customer']['names'] = $user['names'];
         $_SESSION['customer']['email'] = $user['email'];
+        $_SESSION['customer']['hasProfile'] = $user['hasProfile'];
         $_SESSION['customer']['loggedIn'] = true;
         header('location:/ecommerce/');
     }

@@ -24,7 +24,7 @@
             if (isset($_SESSION['customer']) && $_SESSION['customer']['loggedIn']) {
             ?>
                 <li class="nav-item">
-                    <a href="/ecommerce/profile" class="nav-link">Profile</a>
+                    <a href="/ecommerce/profile" class="nav-link dot-parent">Profile <?= isset($_SESSION['customer']) && $_SESSION['customer']['hasProfile'] == 'N' ? '<span class="red-dot" title="Create Profile"></span>' : ''; ?></a>
                 </li>
                 <li class="nav-item">
                     <a href="/ecommerce/logout" class="nav-link">Logout</a>

@@ -5,11 +5,11 @@
                 <ol class="carousel-indicators">
                     <li data-target="#slideIndicators" data-slide-to="0" class="active"></li>
                     <?php
-                        $li = '';
-                        for ($i=1; $i < count($data['images']); $i++) { 
-                            $li .= '<li data-target="#slideIndicators" data-slide-to="'.$i.'"></li>';
-                        }
-                        echo $li;
+                    $li = '';
+                    for ($i = 1; $i < count($data['images']); $i++) {
+                        $li .= '<li data-target="#slideIndicators" data-slide-to="' . $i . '"></li>';
+                    }
+                    echo $li;
                     ?>
                 </ol>
                 <div class="carousel-inner" style="height:100%">
@@ -66,33 +66,40 @@
                 echo $size;
                 ?>
             </div>
-            <div class="input-group pt-3">
-                <select class="form-control" id="size">
-                    <option value="">Select Size</option>
-                    <?php
-                    $selSize = '';
-                    for ($i = 0; $i < count($sizes); $i++) {
-                        $selSize .= '<option value="' . $sizes[$i] . '">' . $sizes[$i] . '</option>';
-                    }
-                    echo $selSize;
-                    ?>
-                </select>
-            </div>
-            <div class="input-group pt-3">
-                <select class="form-control" id="colour">
-                    <option value="">Select Colour</option>
-                    <?php
-                    $selCol = '';
-                    for ($i = 0; $i < count($colours); $i++) {
-                        $selCol .= '<option value="' . $colours[$i] . '">' . $colours[$i] . '</option>';
-                    }
-                    echo $selCol;
-                    ?>
-                </select>
-            </div>
-            <div class="input-group pt-3">
-                <button type="submit" class="btn btn-primary form-control">Add To Cart <i class="fa fa-cart-plus"></i></button>
-            </div>
+            <form action="" method="post" id="form">
+                <div class="input-group pt-3">
+                    <select class="form-control must-fill" name="size">
+                        <option value="">Select Size</option>
+                        <?php
+                        $selSize = '';
+                        for ($i = 0; $i < count($sizes); $i++) {
+                            $selected = isset($_SESSION['old']['size']) && $_SESSION['old']['size'] == $sizes[$i] ? 'selected' : '';
+                            $selSize .= '<option value="' . $sizes[$i] . '" '.$selected.'>' . $sizes[$i] . '</option>';
+                        }
+                        echo $selSize;
+                        ?>
+                    </select>
+                </div>
+                <div class="input-group pt-3">
+                    <select class="form-control must-fill" name="colour">
+                        <option value="">Select Colour</option>
+                        <?php
+                        $selCol = '';
+                        for ($i = 0; $i < count($colours); $i++) {
+                            $selected = isset($_SESSION['old']['colour']) && $_SESSION['old']['colour'] == $colours[$i] ? 'selected' : ''; 
+                            $selCol .= '<option value="' . $colours[$i] . '" '.$selected.'>' . $colours[$i] . '</option>';
+                        }
+                        echo $selCol;
+                        ?>
+                    </select>
+                </div>
+                <input type="hidden" name="product" value="<?= Library\Helper::attributeId() ?>">
+                <input type="hidden" name="csrf-token" value="<?= $_SESSION['csrf']['token'] ?>">
+                <div class="input-group pt-3">
+                    <button type="submit" class="btn btn-primary form-control">Add To Cart <i class="fa fa-cart-plus"></i></button>
+                </div>
+            </form>
+            <?= isset($_SESSION['alert']) ? '<h5 class="alert alert-'.$_SESSION['alert']['class'].' mt-4">'.$_SESSION['alert']['message'].'</h5>' : '' ?>
         </div>
     </div>
 </div>

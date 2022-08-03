@@ -34,6 +34,16 @@ class Database{
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         return $row;
     }
+    //fetches a row where 1 or 2 columns values matches 1 or 2 provided values
+    public function allWhereIdSingleEqual($table,$column1,$value1,$column2,$value2,$condition = '='){
+        $query = 'SELECT * FROM '.$table.' WHERE '.$column1.' = :value1 AND '.$column2.' '.$condition.' :value2';
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':value1', $value1);
+        $stmt->bindParam(':value2', $value2);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $row;
+    }
     //fetches all rows where a value matches multiple records
     public function allWhereIdRows($table,$column,$value){
         $data = [];
