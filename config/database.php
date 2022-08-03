@@ -14,6 +14,7 @@ class Database{
             echo 'DB Connection Error: ' . $exception;
         }
     }
+    
     //shorthand method used to execute a query & fetch rows
     public function allRows($query){
         $data = [];
@@ -36,7 +37,7 @@ class Database{
     }
     //fetches a row where 1 or 2 columns values matches 1 or 2 provided values
     public function allWhereIdSingleEqual($table,$column1,$value1,$column2,$value2,$condition = '='){
-        $query = 'SELECT * FROM '.$table.' WHERE '.$column1.' = :value1 AND '.$column2.' '.$condition.' :value2';
+        $query = 'SELECT * FROM '.$table.' WHERE '.$column1.' = :value1 AND '.$column2.' '.$condition.' :value2 LIMIT 1';
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':value1', $value1);
         $stmt->bindParam(':value2', $value2);

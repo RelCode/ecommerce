@@ -51,6 +51,7 @@ class ProductController {
             $this->alert('danger','server error. try again');
             return false;
         }
+        $this->productModel->updateQty($product['sku'],$product['quantity'] - 1);
         $this->alert('success','1 item added to cart');
         return true;
     }

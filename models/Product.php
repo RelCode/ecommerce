@@ -49,4 +49,13 @@ class Product extends Database {
         }
         return '200';
     }
+
+    public function updateQty($product,$qty){
+        $query = 'UPDATE products SET quantity = :qty WHERE sku = :product';
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':qty',$qty);
+        $stmt->bindParam(':product',$product);
+        $stmt->execute();
+        return true;
+    }
 }
