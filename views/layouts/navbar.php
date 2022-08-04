@@ -7,13 +7,19 @@
     <div class="collapse navbar-collapse" id="navMenuContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a href="/shoes" class="nav-link">Shoes</a>
+                    <a href="/ecommerce/hoodies" class="nav-link">Hoodies</a>
             </li>
             <li class="nav-item">
-                <a href="/shirts" class="nav-link">Shirts</a>
+                <a href="/ecommerce/pants" class="nav-link">Pants</a>
             </li>
             <li class="nav-item">
-                <a href="/shorts" class="nav-link">Shorts</a>
+                <a href="/ecommerce/shirts" class="nav-link">Shirts</a>
+            </li>
+            <li class="nav-item">
+                <a href="/ecommerce/shoes" class="nav-link">Shoes</a>
+            </li>
+            <li class="nav-item">
+                <a href="/ecommerce/shorts" class="nav-link">Shorts</a>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto p-0 m-0">

@@ -1,6 +1,6 @@
 <div class="container" id="main-container">
-    <div class="row p-3">
-        <div class="col-xs-12 col-md-7" style="height:100%">
+    <div class="row p-3" id="special-scroll">
+        <div class="col-xs-12 col-md-5" style="height:100%">
             <div id="slideIndicators" class="carousel slide" data-ride="carousel" style="height:100%">
                 <ol class="carousel-indicators">
                     <li data-target="#slideIndicators" data-slide-to="0" class="active"></li>
