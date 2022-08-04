@@ -6,8 +6,9 @@ class Search extends Database {
         $string = '%'.$string.'%';
         $per_page = 5;
         $from = ($per_page * $page) - $per_page;
-        $query = 'SELECT * FROM products WHERE name LIKE :string LIMIT '.$from.', '.$per_page.'';
+        $query = 'SELECT * FROM products WHERE name LIKE :string OR description LIKE :string LIMIT '.$from.', '.$per_page.'';
         $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':string',$string);
         $stmt->bindParam(':string',$string);
         $stmt->execute();
         if($stmt->rowCount() > 0){
@@ -20,8 +21,9 @@ class Search extends Database {
 
     public function countMatchingProducts($string){
         $string = '%'.$string.'%';
-        $query = 'SELECT * FROM products WHERE name LIKE :string';
+        $query = 'SELECT * FROM products WHERE name LIKE :string OR description LIKE :string';
         $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':string',$string);
         $stmt->bindParam(':string',$string);
         $stmt->execute();
         return $stmt->rowCount();

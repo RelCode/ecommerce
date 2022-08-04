@@ -11,9 +11,9 @@ class SearchController {
             echo '<script>history.back()</script>';
         }
         // var_dump($_POST);
-        if($this->page == 1 && $_SESSION['csrf']['token'] != $_POST['csrf-token']){
+        if($this->page == 1 && (!isset($_POST['csrf-token']) || $_SESSION['csrf']['token'] != $_POST['csrf-token'])){
             $_SESSION['alert']['message'] = 'invalid request';
-            $data = [];
+            $data['count'] = 0;
         }else{
             $data = $this->searchModel->searchForProducts($this->string,$this->page);
             $data['count'] = $this->searchModel->countMatchingProducts($this->string);
