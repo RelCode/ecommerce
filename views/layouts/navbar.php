@@ -42,9 +42,10 @@
             }
             ?>
             <li class="nav-item">
-                <form class="form-inline my-2 ml-md-3 my-lg-0">
+                <form method="post" action="" class="form-inline my-2 ml-md-3 my-lg-0">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search For Product" aria-label="Input field to search for products by name" aria-describedby="button-addon1">
+                        <input type="text" class="form-control" id="search" placeholder="Search For Product" aria-label="Input field to search for products by name" aria-describedby="button-addon1">
+                        <input type="hidden" name="csrf-token" value="<?= $_SESSION['csrf']['token']; ?>">
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="submit"><i class="fa fa-search"></i></button>
                         </div>

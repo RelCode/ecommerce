@@ -38,3 +38,27 @@ window.onload = function(){
     xmlHttp.open('GET',actionUrl + '?action=cartItemsCount');
     xmlHttp.send();
 }
+
+//navbar search product feature
+search = document.getElementById('search');
+search.addEventListener('keyup',function(){
+    let string = this.value;
+    if(string != ''){
+        this.closest('form').action = '/ecommerce/search/?query='+string;
+        console.log(this.closest('form'));
+    }
+})
+
+// window.onload = function(){
+//     xmlHttp.onreadystatechange = function(){
+//         console.log(xmlHttp);
+//     }
+//     xmlHttp.open("GET", "https://www.universal-tutorial.com/api/getaccesstoken");
+//     xmlHttp.setRequestHeader("content-type", "application/x-www-form-urlencoded",{
+//         "api-token": "mb8efL-cwe2rUTcBLxFlL80okqb9xT0bUoyAKuoFJ0ui-56honWEgGmaapMvzFopVJo",
+//         "user-email": "princefana7@gmail.com"
+//     });
+//     xmlHttp.send();
+
+//     // console.log(req);
+// }
