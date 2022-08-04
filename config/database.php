@@ -14,7 +14,23 @@ class Database{
             echo 'DB Connection Error: ' . $exception;
         }
     }
-    
+    public function cartCount(){
+        $id = isset($_SESSION['customer']) ? $_SESSION['customer']['id'] : $_COOKIE['visitor'];
+        $query = 'SELECT COUNT(cc.cart) as items 
+            FROM cart_contents as cc  
+            INNER JOIN cart as c 
+            ON cc.cart = c.id 
+            WHERE c.created_by = :customer AND status = "waiting" 
+            GROUP BY cc.cart';
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':customer',$id);
+        $stmt->execute();
+        if($stmt->rowCount() > 0){
+            $count = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $count['items'];
+        }
+        return '0';
+    }
     //shorthand method used to execute a query & fetch rows
     public function allRows($query){
         $data = [];

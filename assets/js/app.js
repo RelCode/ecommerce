@@ -26,13 +26,15 @@ if(form){
             }
         }
     })
-    // var inputs = document.querySelectorAll('.must-fill');
-    // if(inputs){
-    //     var submitBtn = document.querySelector('input[type=submit]');
-    //     for(const input of inputs){
-    //         input.addEventListener('keyup',function(){
-    //             submitBtn.removeAttribute('disabled')
-    //         })
-    //     }
-    // }
+}
+//after DOM has loaded, fetch items in a cart
+window.onload = function(){
+    let cartCount = document.getElementById('cart-count');
+    xmlHttp.onreadystatechange = function(){
+        // if cart has at least one item, badge class must be set to 'warning' else 'secondary'
+        xmlHttp.response > 0 ? cartCount.classList.add('badge-warning') : cartCount.classList.add('badge-secondary');
+        cartCount.innerText = xmlHttp.responseText;
+    }
+    xmlHttp.open('GET',actionUrl + '?action=cartItemsCount');
+    xmlHttp.send();
 }

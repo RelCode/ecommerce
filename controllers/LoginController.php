@@ -32,6 +32,26 @@ class LoginController {
             $this->alert('danger','incorrect login details');
             return false;
         }
+        //check if user has a cart as a visitor
+        $cart = $this->loginModel->allWhereIdSingleEqual('cart','created_by',$_COOKIE['visitor'],'status','waiting');
+        if(!empty($cart)){//if user has a cart
+            //then checks if user has an older cart that is still waiting before this one
+            $olderCart = $this->loginModel->allWhereIdSingleEqual('cart','created_by',$user['id'],'status','waiting');
+            if(!empty($olderCart)){
+                //if there is an older cart, take the ID of the older cart and change cartID in cart_contents of the new cart
+                if(!$this->loginModel->addNewCartContentsToOlderCart($cart['id'], $olderCart['id'])){
+                    $this->alert('danger','error occured. try again');
+                    return false;
+                }
+            }else{
+                //update cart owner from visitor to currently loggedIn user
+                if(!$this->loginModel->switchCartFromVisitorToCustomer($cart['id'],$user['id'])){
+                    $this->alert('danger','error occured. try again');
+                    return false;
+                }
+            }
+        }
+        setcookie('visitor','', time() - 3600);
         $_SESSION['customer']['id'] = $user['id'];
         $_SESSION['customer']['names'] = $user['names'];
         $_SESSION['customer']['email'] = $user['email'];

@@ -18,7 +18,7 @@
         </ul>
         <ul class="navbar-nav ml-auto p-0 m-0">
             <li class="nav-item">
-                <a href="/ecommerce/cart" class="nav-link">Cart <i class="badge badge-secondary" id="cart-count"></i></a>
+                <a href="/ecommerce/cart" class="nav-link">Cart <i class="badge " id="cart-count"></i></a>
             </li>
             <?php
             if (isset($_SESSION['customer']) && $_SESSION['customer']['loggedIn']) {
