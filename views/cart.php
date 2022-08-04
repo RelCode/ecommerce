@@ -14,7 +14,7 @@
                 $div .= '<div class="col-xs-12 col-md-6 offset-md-3 cart-tile mt-3 mb-3 rounded shadow pl-0">';
                 $div .= '<img src="./uploads/'.$data[$i]['thumbnail'].'" alt="' . $data[$i]['name'] . '" height="100%" width="85px"/>';
                 $div .= '<div class="pl-2">';
-                $div .= '<a href="/product/' . $data[$i]['sku'] . '">' . $data[$i]['name'] . '</a>';
+                $div .= '<a href="/ecommerce/product/' . $data[$i]['sku'] . '">' . $data[$i]['name'] . '</a>';
                 $div .= '<p class="mb-0">R '.number_format($data[$i]['price'],2,'.',',').' '.$data[$i]['unit'].'</p>';
                 $div .= '<form method="post" action="">';
                 $div .= '<input type="hidden" name="csrf-token" value="'.$_SESSION['csrf']['token'].'" />';
