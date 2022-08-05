@@ -25,7 +25,7 @@
                 $div .= '</div>';
                 $div .= '</div>';
             }
-            $div .= '<div class="col-xs-12 col-md-6 offset-md-3 mb-3"><a href="/checkout" class="btn btn-link btn-outline-primary checkout-btn">Checkout R '.number_format($total,2,'.',',').'</a>';
+            $div .= '<div class="col-xs-12 col-md-6 offset-md-3 mb-3"><a href="/ecommerce/checkout" class="btn btn-link btn-outline-primary checkout-btn">Checkout R '.number_format($total,2,'.',',').'</a>';
         } else {
             $div = '<div class="col-xs-12 col-md-6 offset-md-3">';
             $div .= '<h4 class="alert alert-warning text-center">Cart is Empty</h4>';

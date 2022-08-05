@@ -11,4 +11,4 @@ if(!isset($_SESSION['customer']) && !isset($_COOKIE['visitor'])){
     setcookie($name,$value,time() + (86400 * 5));
 }
 
-// if(!)
+//assign .active to current nav item link

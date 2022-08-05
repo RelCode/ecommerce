@@ -6,30 +6,30 @@
 
     <div class="collapse navbar-collapse" id="navMenuContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                    <a href="/ecommerce/category/hoodies" class="nav-link">Hoodies</a>
+            <li class="nav-item <?= $active == 'hoodies' ? 'active' : '' ?>">
+                <a href="/ecommerce/category/hoodies" class="nav-link">Hoodies</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item <?= $active == 'pants' ? 'active' : '' ?>">
                 <a href="/ecommerce/category/pants" class="nav-link">Pants</a>
             </li>
-            <li class="nav-item">
-                <a href="/ecommerce/shirts" class="nav-link">Shirts</a>
+            <li class="nav-item <?= $active == 'shirts' ? 'active' : '' ?>">
+                <a href="/ecommerce/category/shirts" class="nav-link">Shirts</a>
             </li>
-            <li class="nav-item">
-                <a href="/ecommerce/shoes" class="nav-link">Shoes</a>
+            <li class="nav-item <?= $active == 'shoes' ? 'active' : '' ?>">
+                <a href="/ecommerce/category/shoes" class="nav-link">Shoes</a>
             </li>
-            <li class="nav-item">
-                <a href="/ecommerce/shorts" class="nav-link">Shorts</a>
+            <li class="nav-item <?= $active == 'shorts' ? 'active' : '' ?>">
+                <a href="/ecommerce/category/shorts" class="nav-link">Shorts</a>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto p-0 m-0">
-            <li class="nav-item">
+            <li class="nav-item <?= $active == 'cart' ? 'active' : '' ?>">
                 <a href="/ecommerce/cart" class="nav-link">Cart <i class="badge " id="cart-count"></i></a>
             </li>
             <?php
             if (isset($_SESSION['customer']) && $_SESSION['customer']['loggedIn']) {
             ?>
-                <li class="nav-item">
+                <li class="nav-item <?= $active == 'profile' ? 'active' : '' ?>">
                     <a href="/ecommerce/profile" class="nav-link dot-parent">Profile <?= isset($_SESSION['customer']) && $_SESSION['customer']['hasProfile'] == 'N' ? '<span class="red-dot" title="Create Profile"></span>' : ''; ?></a>
                 </li>
                 <li class="nav-item">
@@ -38,10 +38,10 @@
             <?php
             } else {
             ?>
-                <li class="nav-item">
+                <li class="nav-item <?= $active == 'login' ? 'active' : '' ?>">
                     <a href="/ecommerce/login" class="nav-link">Login</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item <?= $active == 'register' ? 'active' : '' ?>">
                     <a href="/ecommerce/register" class="nav-link">Register</a>
                 </li>
             <?php

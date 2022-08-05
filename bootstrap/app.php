@@ -1,6 +1,8 @@
 <?php
     require_once('./config/core.php');
     require_once('./library/helper.php');
+
+    $active = Library\Helper::route() == 'category' ? Library\Helper::attributeId() : Library\Helper::route();
     
 
     include './views/layouts/header.php';

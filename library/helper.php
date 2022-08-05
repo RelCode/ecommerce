@@ -13,7 +13,7 @@
         }
 
         public static function attributeId(){
-            $id = explode('/',$_SERVER['REQUEST_URI'])[3];
+            $id = isset(explode('/',$_SERVER['REQUEST_URI'])[3]) ? explode('/',$_SERVER['REQUEST_URI'])[3] : '';
             return $id;
         }
 
