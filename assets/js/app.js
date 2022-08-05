@@ -48,6 +48,47 @@ search.addEventListener('keyup',function(){
         console.log(this.closest('form'));
     }
 })
+//countryProvinceCity API
+var selectLocations = document.querySelectorAll('.location');
+if(selectLocations){
+    for(const selected of selectLocations){
+        selected.addEventListener('change',function(){
+            if(this.id == 'country'){
+                if(this.value == 'south africa'){
+                    //args(valuesToFetch,selectFieldToPopulate)
+                    fetchLocationValues('fetchProvinces','province');
+                }else{
+                    selectLocations[1].innerHTML = '';
+                    selectLocations[2].innerHTML = '';
+                }
+            }else if(this.id == 'province'){
+                if(this.value != ''){
+                    fetchLocationValues('fetchCities','city',this.value)
+                }else{
+                    selectLocations[2].innerHTML = '';
+                }
+            }
+        })
+    }
+}
+
+function fetchLocationValues(action,selectField,where = null){
+    xmlHttp.onreadystatechange = function(){
+        if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
+            var opts = '<option value=""></option>';
+            if(xmlHttp.responseText.length > 0){
+                JSON.parse(xmlHttp.responseText).forEach((locationValue,index) => {
+                    opts += '<option value="'+locationValue.id+'">'+locationValue.name+'</option>';
+                });
+                document.getElementById(selectField).innerHTML = opts;
+            }else{
+                document.getElementById(selectField).innerHTML = opts;
+            }
+        }
+    }
+    xmlHttp.open('GET',actionUrl+'?action='+action+'&where='+where);
+    xmlHttp.send();
+}
 
 // window.onload = function(){
 //     xmlHttp.onreadystatechange = function(){

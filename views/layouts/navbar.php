@@ -7,10 +7,10 @@
     <div class="collapse navbar-collapse" id="navMenuContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                    <a href="/ecommerce/hoodies" class="nav-link">Hoodies</a>
+                    <a href="/ecommerce/category/hoodies" class="nav-link">Hoodies</a>
             </li>
             <li class="nav-item">
-                <a href="/ecommerce/pants" class="nav-link">Pants</a>
+                <a href="/ecommerce/category/pants" class="nav-link">Pants</a>
             </li>
             <li class="nav-item">
                 <a href="/ecommerce/shirts" class="nav-link">Shirts</a>
