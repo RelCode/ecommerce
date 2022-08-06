@@ -10,7 +10,6 @@ class ProfileController {
         }
         if($_SESSION['customer']['hasProfile'] == 'Y'){
             $profile = $this->profileModel->getUserProfile($_SESSION['customer']['id']);
-            // var_dump($profile);
         }
         require('./views/profile.php');
     }

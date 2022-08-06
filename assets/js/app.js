@@ -90,6 +90,62 @@ function fetchLocationValues(action,selectField,where = null){
     xmlHttp.send();
 }
 
+var stepbtn = document.getElementsByClassName('stepper-btn')[0];
+if(stepbtn){
+    stepbtn.addEventListener('click',function(){
+        if(stepbtn.id == 1){
+            document.getElementsByClassName('stepper-step-1')[0].classList.add('d-none');
+            stepForward();
+        }else if(stepbtn.id == 2){
+            document.getElementsByClassName('stepper-step-2')[0].classList.add('d-none');
+            stepBack();
+        }
+    })
+}
+
+function stepForward(){
+    stepbtn.id = 2;
+    stepbtn.innerText = 'Back';
+    document.getElementsByClassName('stepper-step-2')[0].classList.remove('d-none');
+    document.getElementsByClassName('step-2')[0].classList.add('bg-primary');
+}
+
+function stepBack(){
+    stepbtn.id = 1;
+    stepbtn.innerText = 'Next';
+    document.getElementsByClassName('stepper-step-1')[0].classList.remove('d-none');
+    document.getElementsByClassName('step-2')[0].classList.remove('bg-primary');
+}
+
+var bankSelect = document.getElementById('bank');
+if(bankSelect){
+    var banks = {
+        'ABSA':'632005',
+        'Bank of Athens':'410506',
+        'Bidvest Bank':'462005',
+        'Capitec Bank':'740010',
+        'FNB':'250655',
+        'Investec':'580105',
+        'Nedbank':'198765',
+        'SA Post Bank':'460005',
+        'Standard Bank':'051001'
+    }
+    var bankOpts = '<option></option>';
+    for(const [key,value] of Object.entries(banks)){
+        bankOpts += '<option value='+value+'>'+key+'</option>';
+    }
+    bankSelect.innerHTML = bankOpts;
+
+    bankSelect.addEventListener('change',function(){
+        if(bankSelect.value != ''){
+            document.getElementById('branch').value = bankSelect.value;
+            document.getElementsByClassName('branch')[0].value = bankSelect;
+        }else{
+            document.getElementById('branch').value = '';
+            document.getElementsByClassName('branch')[0].value = bankSelect;
+        }
+    })
+}
 // window.onload = function(){
 //     xmlHttp.onreadystatechange = function(){
 //         console.log(xmlHttp);

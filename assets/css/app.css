@@ -106,6 +106,12 @@ html, body {
     height: 85px;
 }
 
+.cart-tile > div {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 .checkout-btn {
     width: 100%;
     text-decoration: none;
@@ -144,4 +150,43 @@ html, body {
 .form-label > span {
     position: absolute;
     right: 0;
+}
+
+.stepper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stepper > div {
+    width: 30px;
+    height: 30px;
+    border: 1px solid;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stepper > hr {
+    position: relative;
+    top: -2px;
+    border: 1px solid;
+    width: 100%;
+}
+
+.stepper > .bg-primary {
+    color: #fff;
+}
+
+.stepper-btn {
+    position: relative;
+    top: 80px;
+}
+
+@media screen and (max-width:767px){
+    .stepper-btn {
+        top: 10px;
+        width: 100% !important;
+        margin-bottom: 25px;
+    }
 }
