@@ -1,4 +1,4 @@
-# <a href="https://ph-ecommerce.000webhostapp.com/" target="_blank">PH-ECommerce</a>
+# <a target="_blank" href="https://ph-ecommerce.000webhostapp.com/">PH-ECommerce</a>
  
  This is a strictly PHP ecommerce site with a pinch of BS4, JS, Sweetalert & FontAwesome5
  
