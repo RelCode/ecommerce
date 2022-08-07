@@ -139,10 +139,21 @@ if(bankSelect){
     bankSelect.addEventListener('change',function(){
         if(bankSelect.value != ''){
             document.getElementById('branch').value = bankSelect.value;
-            document.getElementsByClassName('branch')[0].value = bankSelect;
+            document.getElementsByClassName('branch')[0].value = bankSelect.value;
         }else{
             document.getElementById('branch').value = '';
-            document.getElementsByClassName('branch')[0].value = bankSelect;
+            document.getElementsByClassName('branch')[0].value = '';
+        }
+    })
+
+    document.getElementById('expiry_date').addEventListener('keyup',function(e){
+        //when a non-numeric key is presses, remove the last entry
+        if(e.keyCode < 48 || e.keyCode > 57){
+            this.value = this.value.substring(0,this.value.indexOf(e.key));
+        }else if(this.value.length == 3){
+            let firstTwo = this.value.substring(0,2)
+            let third = e.key;
+            this.value = firstTwo + '/' + third;
         }
     })
 }

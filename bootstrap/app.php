@@ -30,6 +30,6 @@
             include './views/404.php';
         }
     }
-    include './library/session.php';
     include './views/layouts/footer.php';
+    include './library/session.php';
 ?>

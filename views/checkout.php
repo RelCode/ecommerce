@@ -100,7 +100,7 @@
                             Fake Card Number
                             <?= isset($_SESSION['validation']['card']) ? '<span class="text text-danger">' . $_SESSION['validation']['card'] . '</span>' : '' ?>
                         </label>
-                        <input type="text" id="card" name="card" class="form-control must-fill" value="<?= isset($_SESSION['old']['card']) ? $_SESSION['old']['card'] : '' ?>">
+                        <input type="text" id="card" name="card" minlength="4" maxlength="16" class="form-control must-fill" value="<?= isset($_SESSION['old']['card']) ? $_SESSION['old']['card'] : '' ?>">
                     </div>
                     <!-- Bank Card Number input -->
                     <div class="form-outline mb-2">
@@ -108,7 +108,7 @@
                             Fake Card Expiry Date(M/Y)
                             <?= isset($_SESSION['validation']['expiry_date']) ? '<span class="text text-danger">' . $_SESSION['validation']['expiry_date'] . '</span>' : '' ?>
                         </label>
-                        <input type="text" id="expiry_date" name="expiry_date" class="form-control must-fill" value="<?= isset($_SESSION['old']['expiry_date']) ? $_SESSION['old']['expiry_date'] : '' ?>">
+                        <input type="text" id="expiry_date" maxlength="5" name="expiry_date" class="form-control must-fill" value="<?= isset($_SESSION['old']['expiry_date']) ? $_SESSION['old']['expiry_date'] : '' ?>">
                     </div>
                     <!-- Bank Card Number input -->
                     <div class="form-outline mb-2">
@@ -117,6 +117,14 @@
                             <?= isset($_SESSION['validation']['cvv']) ? '<span class="text text-danger">' . $_SESSION['validation']['cvv'] . '</span>' : '' ?>
                         </label>
                         <input type="text" id="cvv" name="cvv" maxlength="3" class="form-control must-fill" value="<?= isset($_SESSION['old']['cvv']) ? $_SESSION['old']['cvv'] : '' ?>">
+                    </div>
+                    <!-- Email Address input -->
+                    <div class="form-outline mb-2">
+                        <label for="email" class="form-label mb-0">
+                            Email Address
+                            <?= isset($_SESSION['validation']['email']) ? '<span class="text text-danger">'.$_SESSION['validation']['email'].'</span>' : '' ?>
+                        </label>
+                            <input type="text" name="email" id="email" class="form-control must-fill" value="<?= isset($_SESSION['old']['email']) ? $_SESSION['old']['email'] : (isset($_SESSION['customer']) ? $_SESSION['customer']['email'] : '') ?>">
                     </div>
                     <div class="form-outline mb-2">
                         <input type="submit" class="btn btn-success form-control" value="Proceed">
